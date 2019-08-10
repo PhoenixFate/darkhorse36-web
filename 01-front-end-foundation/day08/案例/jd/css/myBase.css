@@ -1,0 +1,305 @@
+
+.w {
+    width: 1190px;
+    margin: auto;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+li {
+    list-style:none;
+}
+
+ul {
+    margin: 0;
+    padding:0;
+}
+
+i {
+    font-style:normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+input button {
+    padding:0;
+    border:0;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?axvffw');
+    src: url('../fonts/icomoon.eot?axvffw#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?axvffw') format('truetype'),
+    url('../fonts/icomoon.woff?axvffw') format('woff'),
+    url('../fonts/icomoon.svg?axvffw#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.style-red {
+    color:#f10215 !important;
+}
+
+body {
+    background-color: #f6f6f6;
+}
+
+
+/*京东 顶部start*/
+.J_event {
+    background-color: #000;
+}
+
+.J_event a {
+    position:relative;
+    display: block;
+    height: 80px;
+    background: url("../images/top.jpg") no-repeat;
+}
+
+.J_event a i {
+    font-style: normal;
+    font-family: 'icomoon';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:0;
+    right:0;
+    text-align: center;
+    color: #ccc;
+    background: rgba(0,0,0,0.4);
+}
+
+/*京东 顶部end*/
+
+
+/*<!--快速导航栏开始-->*/
+.pos {
+    font-family: 'icomoon';
+    color:#f10215;
+}
+.shortcut {
+    height: 30px;
+    background-color: #E3E4E5;
+    border-bottom: 1px solid #DDDDDD;
+    color:#9d9d9d;
+    font-size: 12px;
+    line-height: 30px;
+}
+.shortcut .fl li {
+    margin-left: 200px;
+}
+.shortcut .fr li {
+    float: left;
+}
+
+.shortcut a {
+    color:#9d9d9d;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.shortcut a:hover {
+    color:#c81623;
+}
+
+.spacer {
+    height: 10px;
+    width: 1px;
+    background-color: #ccc;
+    margin:10px 10px 0;
+}
+
+.dropdown {
+    position:relative;
+    padding-right: 15px;
+}
+
+.dropdown i {
+    font-family: "icomoon";
+    font-style: normal;
+    font-size: 16px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+}
+
+.erweima {
+    height: 60px;
+    width: 60px;
+    border:1px solid #ccc;
+    padding: 3px;
+    position: absolute;
+    top:35px;
+    left:-8px;
+}
+
+
+
+
+/*<!--快速导航栏结束-->*/
+
+
+
+
+
+
+
+/*header start*/
+.header {
+    height: 140px;
+}
+
+.inner {
+    height: 140px;
+    background-color: pink;
+    position: relative;
+}
+
+.logo {
+    height: 170px;
+    width: 190px;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    box-shadow: 0 -12px 10px rgba(0,0,0,0.2);
+}
+.logo h1 {
+    margin:0;
+    padding:0;
+}
+.logo a {
+    text-indent: -999em;
+    display: inline-block;
+    height: 170px;
+    width: 190px;
+    background: url(../images/logo.jpg) no-repeat;
+    overflow: hidden;
+}
+
+.search {
+    width: 550px;
+    height: 35px;
+    position:absolute;
+    left:320px;
+    top: 25px;
+}
+
+.search input {
+    float:left;
+    width: 493px;
+    height: 33px;
+    border:1px solid #f10215;
+    padding: 0 0 0 5px ;
+    /*取消蓝色边框*/
+    outline:none;
+    color:#989898;
+}
+
+.search button {
+    float:right;
+    height: 35px;
+    width: 50px;
+    background-color:#f10215 ;
+    border:none;
+    margin: 0;
+    cursor:pointer;
+    outline: 0;
+}
+
+.search i {
+    font-family: icomoon;
+    color:#fff;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.search em {
+    position:absolute;
+    top:10px;
+    right:65px;
+    width: 19px;
+    height: 15px;
+    background: url("../images/sprite-search.png");
+}
+
+.search em:hover{
+    background-position: -30px 0
+}
+
+.hotwords {
+    position:absolute;
+    left:320px;
+    top: 70px;
+}
+
+.hotwords a {
+    color:#9e9b99;
+    text-decoration: none;
+    font-size:12px;
+}
+
+.hotwords a:hover{
+    color:#f10215;
+}
+
+.myCar {
+    width: 188px;
+    height: 33px;
+    border:1px solid #ccc;
+    position: absolute;
+    top:25px;
+    right:100px;
+    text-align: center;
+    line-height: 33px;
+}
+
+.myCar a {
+    font-size: 14px;
+    color:#f10215;
+}
+
+.myCar i {
+    font-family: icomoon;
+    color: #f10215;
+    font-style: normal;
+    margin-right: 3px;
+}
+
+.myCar s {
+    position: absolute;
+    top: 5px;
+    left:140px;
+    text-decoration: none;
+    background-color: #f10215;
+    color:#fff;
+    line-height: 16px;
+    font-size: 12px;
+    padding: 0 3px;
+    border-radius: 7px;
+}
+
+.computer {
+    position:absolute;
+    right:0;
+    bottom: 10px;
+}
+.computer a {
+
+}
+/*header end*/
+
+
+
+
+
+
