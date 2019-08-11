@@ -1,0 +1,112 @@
+body {
+    background-color: #f3f5f7;
+}
+
+header {
+    width: 1300px;
+    height: 100px;
+    margin:0 auto;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 195px;
+    height: 42px;
+    float:left;
+}
+
+.logo a {
+    width: 195px;
+    height: 42px;
+    display: block;
+    background: url("../images/logo.png") no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+nav {
+    float:left;
+    margin-left: 25px;
+}
+
+nav li {
+    float:left;
+    height: 40px;
+    line-height: 40px;
+    margin-left:25px;
+}
+
+nav li a {
+    display: block;
+    height: 40px;
+    font-size: 18px;
+    padding:0 10px;
+}
+
+nav li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+
+.search {
+    width: 410px;
+    height: 40px;
+    float:left;
+    background-color: purple;
+    margin-left: 100px;
+}
+.search input {
+    width: 361px;
+    height: 40px;
+    border:1px solid #00a4ff;
+    /*轮廓线*/
+    outline: none;
+    padding-left: 10px;
+    float:left;
+}
+
+.search button {
+    width:49px;
+    height: 40px;
+    border:0;
+    outline: none;
+    float:left;
+    background: url("../images/search.png") no-repeat;
+}
+
+.personal {
+    float:right;
+    height: 40px;
+    line-height: 40px;
+}
+
+.personal dt,
+.personal dd {
+    float:left;
+}
+
+.personal s{
+    position: relative;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+.personal s::before {
+    content: "";
+    /*因为伪元素默认的是行内元素*/
+    /*行内元素没有宽高*/
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    right:16px;
+    top:0;
+}
+
+.personal span img {
+    border-radius:50%;
+    vertical-align: middle;
+    margin-right:10px;
+}
