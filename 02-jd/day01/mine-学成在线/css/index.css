@@ -109,4 +109,96 @@ nav li a:hover {
     border-radius:50%;
     vertical-align: middle;
     margin-right:10px;
+    transition: transform 0.6s;
 }
+
+.personal span:hover img {
+    transform: rotate(-360deg);
+}
+
+
+
+.banner {
+    height: 420px;
+    background-color: #1c036c;
+}
+
+.inner {
+    position: relative;
+    height: 420px;
+    /*background: url("../images/banner.png") no-repeat top center;*/
+}
+
+.subnav {
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 190px;
+    background: rgba(0,0,0,0.3);
+    padding-top:12px;
+}
+
+.subnav li {
+    position: relative;
+    padding-left:20px;
+    height: 44px;
+    line-height: 40px;
+    /*padding-right: 20px;*/
+}
+
+.subnav a {
+    display: block;
+    font-size: 14px;
+    color:#fff;
+}
+
+.subnav a:hover {
+    color:#00b4ff;
+}
+
+.subnav span {
+    position: absolute;
+    top:0;
+    right:20px;
+}
+
+.circle {
+    position: absolute;
+    width: 176px;
+    height: 20px;
+    /*background-color: #fff;*/
+    bottom:15px;
+    left:50%;
+    /*margin-left:-88px;*/
+    /*下面这个等价于上面这个*/
+    transform: translate(-50%,0);
+}
+
+
+.circle i {
+    display: inline-block;
+    background:rgba(255,255,255,0.4);
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    margin:0 5px;
+    cursor:pointer;
+}
+
+.circle i:hover {
+    width: 20px;
+    background-color: #fff;
+}
+
+.timebook {
+    width: 228px;
+    height: 300px;
+    position: absolute;
+    right:0;
+    top:50%;
+    /*transform: translate(0,-50%);*/
+    transform: translateY(-50%);
+    background-color: pink;
+}
+
