@@ -1,0 +1,404 @@
+body {
+    background-color: #f3f5f7;
+}
+
+header {
+    width: 1300px;
+    height: 100px;
+    margin:0 auto;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 195px;
+    height: 42px;
+    float:left;
+}
+
+.logo a {
+    width: 195px;
+    height: 42px;
+    display: block;
+    background: url("../images/logo.png") no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+nav {
+    float:left;
+    margin-left: 25px;
+}
+
+nav li {
+    float:left;
+    height: 40px;
+    line-height: 40px;
+    margin-left:25px;
+}
+
+nav li a {
+    display: block;
+    height: 40px;
+    font-size: 18px;
+    padding:0 10px;
+}
+
+nav li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+
+.search {
+    width: 410px;
+    height: 40px;
+    float:left;
+    background-color: purple;
+    margin-left: 100px;
+}
+.search input {
+    width: 361px;
+    height: 40px;
+    border:1px solid #00a4ff;
+    /*轮廓线*/
+    outline: none;
+    padding-left: 10px;
+    float:left;
+}
+
+.search button {
+    width:49px;
+    height: 40px;
+    border:0;
+    outline: none;
+    float:left;
+    background: url("../images/search.png") no-repeat;
+}
+
+.personal {
+    float:right;
+    height: 40px;
+    line-height: 40px;
+}
+
+.personal dt,
+.personal dd {
+    float:left;
+}
+
+.personal s{
+    position: relative;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+.personal s::before {
+    content: "";
+    /*因为伪元素默认的是行内元素*/
+    /*行内元素没有宽高*/
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    right:16px;
+    top:0;
+}
+
+.personal span img {
+    border-radius:50%;
+    vertical-align: middle;
+    margin-right:10px;
+    transition: transform 0.6s;
+}
+
+.personal span:hover img {
+    transform: rotate(-360deg);
+}
+
+
+
+.banner {
+    height: 420px;
+    background-color: #1c036c;
+}
+
+.inner {
+    position: relative;
+    height: 420px;
+    /*background: url("../images/banner.png") no-repeat top center;*/
+}
+
+.subnav {
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 190px;
+    background: rgba(0,0,0,0.3);
+    padding-top:12px;
+}
+
+.subnav li {
+    position: relative;
+    padding-left:20px;
+    height: 44px;
+    line-height: 40px;
+    /*padding-right: 20px;*/
+}
+
+.subnav a {
+    display: block;
+    font-size: 14px;
+    color:#fff;
+}
+
+.subnav a:hover {
+    color:#00b4ff;
+}
+
+.subnav span {
+    position: absolute;
+    top:0;
+    right:20px;
+}
+
+.circle {
+    position: absolute;
+    width: 176px;
+    height: 20px;
+    /*background-color: #fff;*/
+    bottom:15px;
+    left:50%;
+    /*margin-left:-88px;*/
+    /*下面这个等价于上面这个*/
+    transform: translate(-50%,0);
+}
+
+
+.circle i {
+    display: inline-block;
+    background:rgba(255,255,255,0.4);
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    margin:0 5px;
+    cursor:pointer;
+}
+
+.circle i:hover {
+    width: 20px;
+    background-color: #fff;
+}
+
+.timebook {
+    width: 228px;
+    height: 300px;
+    position: absolute;
+    right:0;
+    top:50%;
+    /*transform: translate(0,-50%);*/
+    transform: translateY(-50%);
+    background-color: #fff;
+}
+
+.timebook dt {
+    height: 50px;
+    background-color: #9bceea;
+    font-weight: 700;
+    color:#fff;
+    line-height: 50px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.timebook dd {
+    padding: 15px 20px 0;
+}
+
+.timebook dd li {
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+    padding-top: 6px;
+}
+
+.timebook dd li:last-child {
+     border:none;
+}
+
+.timebook h5 {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.all {
+    height: 40px;
+    border:1px solid #22b0ff;
+    display: block;
+    font-size: 16px;
+    color:#22b0ff;
+    text-align: center;
+    line-height: 38px;
+}
+.all:hover {
+    background-color: #22b0ff;
+     color:#fff;
+}
+
+.recommend {
+    height: 60px;
+    margin-top: 10px;
+    background-color: #fff;
+    /*行高会继承*/
+    line-height: 60px;
+    padding-right: 20px;
+    box-shadow:0 1px 12px 2px rgba(0,0,0,0.2)
+}
+
+
+.rec-left {
+    float:left;
+    padding-left: 30px
+}
+
+.rec-left strong{
+    color:#22b0ff;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+.rec-left a {
+    margin:0 15px;
+    font-size: 14px;
+}
+
+
+.recommend em {
+    float:right;
+}
+
+
+.products {
+    margin-top: 30px
+}
+
+.product-head {
+    height: 40px;
+    line-height: 40px;
+}
+
+.product-head h4 {
+    float:left;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.product-head a {
+    float:right;
+    margin-right: 20px;
+
+}
+
+.product-body li {
+    width: 228px;
+    height: 270px;
+    background-color: #fff;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+
+.product-body img {
+    transition: all 0.3s;
+}
+
+.product-body img:hover{
+    margin-left: -5px;
+}
+
+.product-body li:nth-child(5n) {
+    margin-right: 0;
+}
+
+.product-body li:hover {
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    transform:translateY(-10px);
+}
+
+
+.product-title {
+    width: 185px;
+    margin:20px auto;
+    font-size: 14px;
+    color:#050505;
+}
+
+.product-body li p {
+    width: 185px;
+    margin:0 auto;
+    color:#999;
+}
+
+.product-body li p span {
+    color:#ff7c2d;
+}
+
+.product-body li p i {
+    margin:0 8px;
+}
+
+footer {
+    height: 420px;
+    background-color: #fff;
+    margin-top:30px;
+}
+
+.footer-main {
+    padding-top: 30px;
+}
+
+.footer-left {
+    margin-left: 20px;
+    float:left;
+}
+
+.footer-left p {
+    margin:25px 0 15px 0;
+}
+
+
+.footer-left a {
+    width: 120px;
+    height: 35px;
+    display: block;
+    border:1px solid #22b0ff;
+    text-align: center;
+    line-height: 35px;
+    color:#22b0ff;
+    font-size: 16px;
+}
+
+.footer-right {
+    float:right;
+    padding-right: 20px;
+}
+
+.footer-right dl {
+    float:left;
+    margin-left: 130px;
+}
+
+.footer-right dt {
+    font-size: 16px;
+    /*margin-bottom: 10px;*/
+    color:#333;
+    height: 30px;
+}
+
+.footer-right dd {
+    /*line-height: 1.5;*/
+    height: 20px;
+}
