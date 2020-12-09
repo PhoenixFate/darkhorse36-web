@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$永远的24k纯帅$</title>
-  <script>
+    <meta charset="UTF-8">
+    <title>$永远的24k纯帅$</title>
+    <script>
 
-    function Person(name,age) {
-      this.name=name;
-      this.age=age;
-      this.play=function () {
-          console.log("喜欢玩游戏");
-      };
-    }
-    var obj=new Person("卡卡西",20);
-    //obj.name="佐助";
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.play = function () {
+                console.log("喜欢玩游戏");
+            };
+        }
 
-    obj["name"]="佐助";
-    console.log(obj["name"]);
+        var obj = new Person("卡卡西", 20);
+        //obj.name="佐助";
 
-    obj.play();
-    obj["play"]();
+        obj["name"] = "佐助";
+        console.log(obj["name"]);
 
-
-   // console.log(obj.name);
-//    console.log(obj.age);
-//    obj.play();
+        obj.play();
+        obj["play"]();
 
 
+        console.log(obj.name);
+        console.log(obj.age);
+        //    obj.play();
 
 
-  </script>
+    </script>
 </head>
 <body>
 

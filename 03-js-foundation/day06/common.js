@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2017-09-13.
  */
+
 //格式化后的指定格式的日期和时间---封装一个函数
 
 /**
@@ -26,17 +27,16 @@ function getDate(dt) {
     hour = hour < 10 ? "0" + hour : hour;
     minute = minute < 10 ? "0" + minute : minute;
     second = second < 10 ? "0" + second : second;
-    return year + "年" + month + "月" + day + "日 " + hour + ":" + minute + ":" + second;
+    return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
 }
 
 
-
-
+//ie8 等低版本浏览器的兼容性代码
 // Production steps of ECMA-262, Edition 5, 15.4.4.18
 // Reference: http://es5.github.io/#x15.4.4.18
 if (!Array.prototype.forEach) {
 
-    Array.prototype.forEach = function(callback, thisArg) {
+    Array.prototype.forEach = function (callback, thisArg) {
 
         var T, k;
 
@@ -53,7 +53,7 @@ if (!Array.prototype.forEach) {
         // 3. Let len be toUint32(lenValue).
         var len = O.length >>> 0;
 
-        // 4. If isCallable(callback) is false, throw a TypeError exception. 
+        // 4. If isCallable(callback) is false, throw a TypeError exception.
         // See: http://es5.github.com/#x9.11
         if (typeof callback !== "function") {
             throw new TypeError(callback + ' is not a function');

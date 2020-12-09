@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$永远的24k纯帅$</title>
-  <script>
-    //var dt=new Date();
-//    var dt=+new Date();//一种特殊的写法,只适用于这个Date的对象
-//    console.log(dt);
+    <meta charset="UTF-8">
+    <title>$永远的24k纯帅$</title>
+    <script>
+        var dt = new Date();
+        var dt2 = +new Date();//一种特殊的写法,只适用于这个Date的对象
+        console.log(dt);
+        console.log(dt2)
+        dt.getFullYear();//年
+        dt.getMonth();//月---从0开始
+        dt.getDate();//日
+        dt.getHours();//小时
+        dt.getMinutes();//分钟
+        dt.getSeconds();//秒
+        dt.getDay();//星期---从0开始
+        dt.toDateString();//日期
+        dt.toLocaleDateString();//日期
+        dt.toTimeString();//时间
+        dt.toLocaleTimeString();//时间
+        dt.valueOf();//毫秒
 
-//    dt.getFullYear();//年
-//    dt.getMonth();//月---从0开始
-//    dt.getDate();//日
-//    dt.getHours();//小时
-//    dt.getMinutes();//分钟
-//    dt.getSeconds();//秒
-//    dt.getDay();//星期---从0开始
-//    dt.toDateString();//日期
-//    dt.toLocaleDateString();//日期
-//    dt.toTimeString();//时间
-//    dt.toLocaleTimeString();//时间
-//    dt.valueOf();//毫秒
 
+        //获取日期的毫秒值
+        //1. .valueOf()
+        console.log(new Date().valueOf())
+        //2. .now()  html5中提供的方法，有兼容性问题
+        console.log(Date.now())
+        //3. + new Date() //老式的写法，特殊写法，调用的还是valueOf()
+        console.log(+ new Date())
 
-
-  </script>
+    </script>
 </head>
 <body>
 
