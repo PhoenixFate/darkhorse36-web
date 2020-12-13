@@ -1,0 +1,76 @@
+<body style="height: 100%;">
+<div class="box" id="box" style="height: 200px;">
+    <ul class="list" style="height:100px">
+        <li class="in" style="height: 30px;">1</li>
+        <li class="in" style="height: 30px;" title="test">2</li>
+        <li class="in" style="height: 30px;">3</li>
+    </ul>
+</div>
+<script>
+    console.log("----------------- querySelector ---------------")
+    //因为没有.null类名，所以返回null
+    var oNull = document.querySelector('.null');
+    console.log(oNull);//null
+    //通过<body>标签取得元素
+    var body = document.querySelector("body");
+    console.log(body.style.height);//100%
+    console.log(body)
+    //通过id属性取得元素
+    var oBox = document.querySelector('#box');
+    console.log(oBox.style.height);//200px
+    //通过结合元素的类选择器取得元素
+    var oList = document.querySelector('ul.list');
+    console.log(oList.style.height);//100px
+    //通过类名取得元素
+    var oIn = document.querySelector('.in');
+    console.log(oIn.innerHTML);//1
+    //通过属性选择器取得元素
+    var oTest = body.querySelector('[title="test"]');
+    console.log(oTest.innerHTML);//2
+    console.log("----------------- querySelector ---------------")
+</script>
+
+<script>
+    console.log("----------------- querySelectorAll ---------------")
+    //返回[]
+    var oNull = document.querySelectorAll('.null');
+    console.log(oNull);
+    //取得body元素
+    var body = document.querySelectorAll("body")[0];
+    console.log(body.style.height);//100%
+    //取得所有class为"in"的元素
+    var oIn = document.querySelectorAll('.in');
+    for (var i = 0; i < oIn.length; i++) {
+        console.log(oIn[i].innerHTML);//1,2,3
+    }
+    //取得title属性为test的元素
+    var oTest = body.querySelectorAll('[title="test"]');
+    console.log(oTest);//[li.in]
+    console.log("----------------- querySelectorAll ---------------")
+</script>
+<script>
+    <!--　　matchesSelector()方法接收一个CSS选择符参数，如果调用元素与该选择符相匹配，返回true；否则返回false-->
+    console.log("----------------- matchesSelector ---------------")
+    //Uncaught TypeError: document.body.matchesSelector is not a function
+    // console.log(document.body.matchesSelector('#test'));
+    //由于兼容性问题，现在各个浏览器都只支持加前缀的方法。IE9+浏览器支持msMatchesSelector()方法，
+    // firefox支持mozMatchesSelector()方法，safari和chrome支持webkitMatchesSelector()方法。所以兼容写法为:
+    function matchesSelector(element, selector) {
+        if (element.matchesSelector) {
+            return element.matchesSelector(selector);
+        }
+        if (element.msMatchesSelector) {
+            return element.msMatchesSelector(selector);
+        }
+        if (element.mozMatchesSelector) {
+            return element.mozMatchesSelector(selector);
+        }
+        if (element.webkitMatchesSelector) {
+            return element.webkitMatchesSelector(selector);
+        }
+    }
+
+    console.log(matchesSelector(document.body, '#test'));//true
+    console.log("----------------- matchesSelector ---------------")
+</script>
+</body>
