@@ -16,6 +16,13 @@
   my$("btn").onclick=function () {
     console.log("小杨好帅哦");
   };
+
+
+  //为元素绑定事件的三种方式：
+  //1. element.onClick  只能绑定单个事件，但无兼容性问题
+  //2. 对象.addEventListener("事件类型",事件处理函数,false) --谷歌和火狐支持,IE8不支持
+  //3. 对象.attachEvent("有on的事件类型",事件处理函数)  --谷歌不支持,火狐不支持,IE8支持
+
 </script>
 </body>
 </html>

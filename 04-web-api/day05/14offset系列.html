@@ -1,74 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>title</title>
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-    }
-    input{
-      top: 250px;
-      position: absolute;
-    }
-    #dv1{
-      width: 200px;
-      height: 150px;
-      background-color: red;
-      position: absolute;
-      left: 100px;
-      top: 30px;
-    }
-    #dv2{
-      width: 100px;
-      height: 50px;
-      background-color: green;
-    }
-  </style>
-  <script>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-    //三个大的系列:
-    /*
-    * 三组属性
-    * 1. offset系列中的属性
-    *
-    *
-    * */
-  </script>
+        input {
+            top: 250px;
+            position: absolute;
+        }
+
+        #dv1 {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+            top: 30px;
+            border: 1px solid black;
+        }
+
+        #dv2 {
+            width: 100px;
+            height: 50px;
+            background-color: green;
+            position: absolute;
+            left: 50px;
+            top: 30px;
+        }
+    </style>
+    <script>
+        //三个大的系列:
+        /*
+        * 三组属性
+        * 1. offset系列中的属性
+        * 2. scroll系列属性
+        * 3. client系列属性
+        *
+        * */
+    </script>
 </head>
 <body>
 <div id="dv1">
-  <div id="dv2"></div>
+    <div id="dv2"></div>
 </div>
-<input type="button" value="显示效果" id="btn"/>
+<input type="button" value="打印dv1 offset" id="btn"/>
+<input type="button" value="打印dv12 offset" id="btn2"/>
 <script src="common.js"></script>
 <script>
 
-  //红色div的宽和高
-  my$("btn").onclick=function () {
-    //在style标签中设置的样式属性获取不到
-    //style属性中设置的样式属性是可以获取到的
-    //获取元素的样式,下面的方式废了
-    //console.log(my$("dv1").style.width);
-    //console.log(my$("dv1").style.height);
-
-    //以后获取元素的宽和高,应该使用offset系列来获取
-    /*
-    *
-    * offsetWidth:获取元素的宽
-    * offsetHeight:获取元素的高
-    * offsetLeft:获取元素距离左边位置的值
-    * offsetTop:获取元素距离上面位置的值
-    *
-    * */
-   console.log(my$("dv1").offsetWidth);
-   console.log(my$("dv1").offsetHeight);
+    //红色div的宽和高
+    my$("btn").onclick = function () {
+        //在style标签中设置的样式属性获取不到
+        //style属性中设置的样式属性是可以获取到的
+        //下面两种无法通过.style.width; .style.height 获取
+        //1.元素未设置宽度值。
+        //2.元素设置了宽度值，但，设置在内联或外联样式表中，而非内嵌式的
+        console.log(my$("dv1").style.width);
+        console.log(my$("dv1").style.height);
 
 
-    console.log(my$("dv1").offsetLeft);
-    console.log(my$("dv1").offsetTop);
-  };
+        //以后获取元素的宽和高,应该使用offset系列来获取
+        /*
+        *
+        * offsetWidth:获取元素的宽
+        * offsetHeight:获取元素的高
+        * offsetLeft:获取元素距离父元素左边位置的值
+        * offsetTop:获取元素距离父元素上面位置的值
+        *
+        * */
+        console.log(my$("dv1").offsetWidth);
+        console.log(my$("dv1").offsetHeight);
+        console.log(my$("dv1").offsetLeft);
+        console.log(my$("dv1").offsetTop);
+    };
+    my$("btn2").onclick = function () {
+        console.log(my$("dv2").offsetWidth);
+        console.log(my$("dv2").offsetHeight);
+        console.log(my$("dv2").offsetLeft);
+        console.log(my$("dv2").offsetTop);
+    }
 </script>
 </body>
 </html>
