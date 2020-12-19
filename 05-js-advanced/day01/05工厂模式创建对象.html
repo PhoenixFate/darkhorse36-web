@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>title</title>
   <script>
-    
+
     function createObject(name,age) {
       var obj=new Object();
       obj.name=name;
@@ -47,8 +47,11 @@
 
 
     var per1=new Person("小红",20);
-
+    console.log(per1)
+    console.log(per1 instanceof Person)
     var per2=createObject("小明",20);
+    console.log(per2)
+    console.log(per2 instanceof Person)
   </script>
 </head>
 <body>
