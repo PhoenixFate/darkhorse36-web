@@ -12,6 +12,7 @@
     function F2(age) {
       this.age = age;
     }
+    //原型继承，改变原型指向，实现继承
     F2.prototype = new F1(10);
     function F3(age) {
       this.age = age;
