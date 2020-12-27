@@ -19,13 +19,14 @@ echo '<br>';
 // PHP 中专门为 宽字符集 添加了一套 API
 // 这一套 API 不在内置的 1000+ 里面，而是在一个模块（php_mbstring.dll）中
 // 模块成员必须通过配置文件载入模块过后再使用
-// 所有的API 都是 mb_xxxx
+// 宽字符集的所有的API 都是 mb_xxxx
 echo mb_strlen('你好');
 
 
 // 配置 PHP 扩展的步骤
 // 1. 在 PHP 的安装目录去创建一个 php.in
-// 2. extension_dir
+// 2. extension_dir='xxxpath'
 // 3. ;extension=php_mbstring.dll
 // 4. 默认Apache加载的php.ini 是去 Windows目录找的
 // 5. 可以通过 Apache 的配置文件修改默认加载路径 PHPIniDir
+//    apache->httpd.conf->添加 PHPIniDir="xxx"
