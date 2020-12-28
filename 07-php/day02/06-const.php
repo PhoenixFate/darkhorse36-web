@@ -10,12 +10,15 @@
 // 第一个参数常量名称
 // 第二个是常量的值
 define('SYSTEM_NAME', '阿里百秀');
+define('SYSTEM_VERSION', '1.0');
 // 第三个参数是常量名称是否忽略大小写 默认为false 不忽略
-define('SYSTEM_VERSION', '1.0', true);
+//define('SYSTEM_VERSION', '1.0', true);//不推荐使用，($case_insensitive) is ignored since declaration of case-insensitive constants is no longer supported
 
 echo SYSTEM_NAME;
+echo "<br>";
 // echo system_name;
 
 
 echo SYSTEM_VERSION;
-echo system_version;
+echo "<br>";
+

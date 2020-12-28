@@ -6,6 +6,7 @@
 </head>
 <body>
   <?php require 'aside.php'; ?>
+  <?php require_once 'aside.php'; ?>
   <main>
     另外的一个页面
   </main>
