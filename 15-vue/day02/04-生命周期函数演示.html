@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3 id='h3'>{{msg}}</h3>
+        <input type="button" value="修改msg" @click="modify()">
+    </div>
+
+    <script>
+        var vm =new Vue({
+            el:"#app",
+            data:{
+                msg:'ok'
+            },
+            methods:{
+                show(){
+                    console.log("----------------show()-------------");
+                },
+                modify(){
+                    this.msg+="123 ";
+                }
+            },
+            filters:{
+
+            },
+            directives:{
+
+            },
+            //创造期间的四个函数
+            //第一个生命周期函数
+            beforeCreate(){
+                console.log("---------before created--------");
+                console.log("拿不到data中的数据："+this.msg);
+            },
+            created(){
+                console.log("-------------created-----------");
+                console.log("可以拿到data和methods中的数据："+this.msg);
+            },
+            //第三个生命周期函数，表示模板已经编译完成，但是尚未把模板渲染到页面中
+            //内存中是最新的，但页面上不是最新的数据
+            beforeMount(){
+                console.log("---------------before mount---------");
+                console.log(document.getElementById('h3').innerText);
+                //在beforemount执行的时候，页面中的元素还未被替换过来，只是之前写的一些模板字符串
+            },
+            //第四个生命周期函数，表示内存中的模板，已经真实的挂载到了页面中，用户已经可以看到渲染的页面了
+            mounted(){
+                console.log("---------------mounted---------");
+                console.log(document.getElementById('h3').innerText);
+                //mounted 是实例创建期间的最后一个生命周期函数，当执行完mounted之后，表示实例已经完全
+                //创建好了
+            },
+
+            //运行期间的两个函数
+            //数据已经被更新了，在更新之前调用这个函数
+            beforeUpdate(){
+                console.log("-----------------before updated----------------");
+            },
+
+            //数据更新之后
+            updated(){
+                console.log("------------------updated--------------------");
+            }
+        })
+
+    </script>
+</body>
+</html>

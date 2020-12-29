@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+    <script src="../lib/vue-router-3.0.1.js"></script>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/login">登录</router-link>
+        <router-link to="register">注册</router-link>
+        <!-- 展示路由的容器 -->
+        <router-view></router-view>
+    </div>
+
+    <script>
+        var login={
+            template:"<h1>登录组件</h1>"
+        }
+
+        var register={
+            template:"<h1>注册组件</h1>"
+        }
+
+        // 创建路由对象
+        var router=new VueRouter({
+            // 路由规则数组
+            routes:[
+                {path:"/",redirect:'login'},
+                {path:"/login",component:login},
+                {path:"/register",component:register}
+            ],
+        })
+
+
+        var vm=new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+
+            },
+            router,
+            // 监听非dom元素的事件
+            watch:{
+                '$route.path'(newValue,oldValue){
+                    console.log(newValue+"----------------"+oldValue);
+                    if(newValue==='/login'){
+                        console.log("欢迎进入登录页面")
+                    }else if(newValue=='/register'){
+                        console.log("欢迎进入注册页面")
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

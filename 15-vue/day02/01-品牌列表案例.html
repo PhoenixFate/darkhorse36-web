@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+</head>
+<body>
+    <div id="app">
+        <table class="table table-bordered table-hover table-striped">
+            
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                   <h3 class="panel-title">添加品牌</h3>
+                </div>
+                <div class="panel-body form-inline">
+                    <label>
+                        id:<input type="text" v-model="id" class="form-control"></input>
+                    </label>
+                    <label>
+                        name:<input type="text" v-model="name" class="form-control"></input>
+                    </label>
+                    <!-- add, add() 没什么区别，唯一区别： (可以传参) -->
+                    <input type="button" value="添加" class="btn btn-primary" @click="add">
+
+                    <label>
+                        搜索关键字:<input type="text" v-model="keywords" class="form-control"></input>
+                    </label>
+
+                </div>
+            </div>
+             
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>time</th>
+                    <th>operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,i) in search2(keywords) " :key="item.id">
+                    <td>{{i}}:{{item.id}}</td>
+                    <td  v-text="item.name"></td>
+                    <td>{{item.time}}</td>
+                    <td > 
+                        <a href="" @click.prevent='deleteCar(item.id)'>删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                id:'',
+                name:'',
+                keywords:'',
+                list:[
+                    {id:1,name:'奔驰',time:new Date()},
+                    {id:2,name:'宝马',time:new Date()},
+                    {id:3,name:'兰博基尼',time:new Date()},
+                ]
+            },
+            methods:{
+                add(){
+                    //获取id，name
+                    ///2.组织出一个对象
+                    //3.数组.push  unshift
+                    //4.注意：
+                    var car={id:this.id,name:this.name,time:new Date()}
+                    this.list.push(car); 
+                    this.id=this.name='';
+                },
+                deleteCar(id) {
+                    //如何根据id 找到该项索引
+                    console.log("delete: "+id);
+
+
+                    //第二种方法：通过array.findIndex()来查找对应的index
+                    var index=this.list.findIndex(item=>{
+                        if(item.id==id){
+                            return true;
+                        }
+                    })
+                    console.log("index: "+index);
+
+
+
+                    //第一种方法。通过array.some来遍历数组，查找对应的index
+
+
+                    this.list.some((item,i)=>{
+                        if(item.id==id){
+                            this.list.splice(i,1);
+                            return true; 
+                        }
+                    })
+
+             
+                },
+                //根据关键字来进行数据的存储
+                search(keywords){
+                    var newList=[];
+                    this.list.forEach(element => {
+                        if(element.name.indexOf(keywords)!=-1){
+                            newList.push(element);
+                        }
+                    });
+                    return newList;
+                },
+
+                //foreach, some , filter, findIndex 都会对数组中的每一项进行遍历
+                search2(keywords){
+                    var newList=this.list.filter(item=>{
+                        //在es6中，为字符串提供了一个新方法，String.prototype.includes('要包含的字符串'), 包含返回true
+                        if(item.name.includes(keywords)){
+                            return true;
+                        }
+                    })
+                    return newList;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

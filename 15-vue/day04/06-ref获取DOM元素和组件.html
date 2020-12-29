@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" @click="getElement()" value="获取元素" ref="btn">
+        <h3 id="myh3" ref="myh3">哈哈，今天天气真好<span>123</span></h3>
+        <input type="button" value='获得子组件' @click="getComponent()">
+        <login ref="mylogin"></login>
+    </div>
+
+    <script>
+        var login={
+            template:'<h3>登录组件</h3>',
+            data(){
+                return {
+                    msg:'son msg'
+                }
+            },
+            methods: {
+                show(){
+                    console.log("调用了子组件的方法")
+                    return 1;
+                }
+            }
+        }
+
+
+        var vm=new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                getElement(){
+                    // vue 不推荐操作dom元素
+                    console.log(document.getElementById("myh3"));
+                    console.log(document.getElementById('myh3').innerHTML)
+                    console.log(document.getElementById('myh3').innerText); 
+                    console.log("--------------------------------------");
+                    // ref=reference
+                    console.log(this.$refs.myh3);
+                    console.log(this.$refs.myh3.innerHTML)
+                },
+                getComponent(){
+                    console.log("getComponent");
+                    console.log(this.$refs.mylogin);
+                    console.log(this.$refs.mylogin.msg);
+                    console.log(this.$refs.mylogin.show());
+                }
+            },
+            components:{
+                login
+            }
+        })
+    </script>
+
+</body>
+</html>

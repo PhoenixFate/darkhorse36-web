@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="../lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="n1">
+        <select v-model="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/ ">/</option>
+        </select>
+        <input type="text" v-model="n2">
+        <input type="button" value="计算" @click="calculate">
+        <input type="text" v-model="result">
+    </div>
+
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                n1:0,
+                n2:0,
+                operator:'-',
+                result:0,
+            },
+            methods:{
+                calculate(){
+                    // if(this.operator=='+'){
+                    //     this.result=this.n1+this.n2;
+                    // }else if(this.operator=='-'){
+                    //     this.result=this.n1-this.n2;
+                    // }else if(this.operator=='*'){
+                    //     this.result=this.n1*this.n2;
+                    // }else if(this.operator=='/'){
+                    //     this.result=this.n1/this.n2; 
+                    // }
+                    switch(this.operator){
+                        case '+':this.result=this.n1+this.n2;
+                        break;
+                        case '-':this.result=this.n1-this.n2;
+                        break;
+                        case '*':this.result=this.n1*this.n2;
+                        break;
+                        case '/':this.result=this.n1/this.n2;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

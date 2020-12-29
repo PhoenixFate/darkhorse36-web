@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style type="text/css">
+        .haha-leave-active {
+          transition: opacity .5s;
+        }
+        .haha-leave-to /* .fade-leave-active below version 2.1.8 */ {
+          opacity: 0;
+        }
+        #demo{
+          position: relative;
+          width: 200px;
+          height: 200px;
+          margin: auto;
+          top: 100px;
+        }
+        .bug{
+          position: relative;
+          opacity: 1 important;
+        }
+    </style>
+<script src="../lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="demo">
+      <button v-on:click="show = !show">点击</button>
+      <transition name="haha">
+          <div class="bug" v-if="show">你好</div>
+      </transition>
+      <input type="checkbox"  @click="change" :checked="myCheck==1" >
+    </div>
+    <script type="text/javascript">
+        var vm=new Vue({
+          el: '#demo',
+          data: {
+            obj:{
+              myCheck:1
+            },
+            myCheck:0,
+            show: true
+          },
+          methods:{
+            change(){
+              this.myCheck=!this.myCheck;
+              console.log(this.myCheck);
+            }
+          }
+        })
+    </script>
+</body>

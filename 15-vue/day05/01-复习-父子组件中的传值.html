@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com1 :parentmsg='msg' v-on:func="getMessage"></com1>
+    </div>
+
+    <template id="temp1">
+        <div>
+            <h1>这是子元素---------------{{parentmsg}}</h1>
+            <input type="button" value="向父组件传递消息" @click="sendMsg()">
+        </div>
+    </template>
+
+    <script>
+        var com1={
+            template:"#temp1",
+            data(){
+                return {
+                    msg:'儿子有的就是钱'
+                }
+            },
+            props:[
+                'parentmsg'
+            ],
+            methods:{
+                sendMsg(){
+                    console.log(this.msg);
+                    this.$emit("func",this.msg);
+                }
+            }
+        }
+
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                msg:"爸爸有100块钱",
+                sonMsg:''
+            },
+            methods:{
+                getMessage(msg){
+                    console.log(msg);
+                    this.sonMsg=msg;
+                    console.log(this.sonMsg);
+                }
+            },
+            components:{
+                com1
+            }
+
+        })
+    </script>
+</body>
+</html>

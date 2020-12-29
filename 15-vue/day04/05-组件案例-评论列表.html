@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+    <div id="app">
+        <comment-box @func="loadComments"></comment-box>
+        <ul class="list-group">
+            <li class="list-group-item" v-for="item in list" :key="item.id">
+                {{item.id}}
+                <span class="badge">{{item.user}}</span>
+                {{item.content}}
+            </li>
+        </ul>
+    </div>
+    <template id="temp1">
+        <div>
+            <div class="form-group">
+                <label for="">评论人：</label>
+                <input type="text" class="form-control" v-model="user">
+            </div>
+            <div class="form-group">
+                <label for="">评论内容：</label>
+                <textarea class="form-control" v-model="content"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="button" value="发表评论" class="btn btn-primary" @click="postComment">
+            </div>
+        </div>
+    </template>
+
+    <script>
+
+
+        //评论组件
+        var commentBox = {
+            data() {
+                return {
+                    user: '',
+                    content: ''
+                }
+            },
+            template: "#temp1",
+            methods: {
+                postComment() {
+                    console.log("postComment");
+                    // 新增的对象comment
+                    var comment = { id: Date.now(), user: this.user, content: this.content };
+
+                    //从localStorage获得所有的评论
+                    var list = JSON.parse(localStorage.getItem("comments") || '[]');
+                    list.unshift(comment);
+                    localStorage.setItem("comments", JSON.stringify(list));
+                    // 保存完毕后 清空数据
+                    this.user = '';
+                    this.content = '';
+                    this.$emit('func')
+                },
+
+            }
+        }
+
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                list: [
+                    { id: Date.now(), user: "李白", content: "天生我材必有用" },
+                    { id: Date.now(), user: "江小白", content: "jeisjrwi" },
+                    { id: Date.now(), user: "马化腾", content: "充钱使你变成更强" }
+                ]
+            },
+            methods: {
+                // 从本地的localStorage中加载评论列表
+                loadComments() {
+                    //从localStorage获得所有的评论
+                    var list = JSON.parse(localStorage.getItem("comments") || '[]');
+                    this.list=list;
+                }
+            },
+            components: {
+                commentBox
+            },
+            created() {
+                this.loadComments();
+            },
+        })
+    </script>
+</body>
+
+</html>

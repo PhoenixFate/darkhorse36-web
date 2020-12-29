@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+    <style>
+        .inner{
+            height: 150px;
+            background-color: darkgray;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="app"> 
+        <div class="inner" @click='divHandler'>
+            <!-- 使用.stop事件修饰符阻止冒泡 -->
+            <input type="button" value="戳他 " @click.stop='btnHandler'>
+        </div>
+
+
+        <!-- .prevent阻止默认行为 -->
+        <a href="http://www.baidu.com" @click.prevent="linkClick">跳转到百度</a><br>
+
+        <!-- .capture 添加事件监听器时使用事件捕获模式 -->
+        <div class="inner" @click.capture='divHandler'>
+            <!-- 使用.stop事件修饰符阻止冒泡 -->
+            <input type="button" value="戳他 " @click='btnHandler'>
+        </div>
+
+
+        <!-- .self只有点击自己才触发事件，其他冒泡捕获不触发 -->
+        <div class="inner" @click.self='divHandler'>
+            <!-- 使用.stop事件修饰符阻止冒泡 -->
+            <input type="button" value="戳他 " @click='btnHandler'>
+        </div>
+    
+
+        <!-- .once 事件 只触发一次 -->
+        <a href="http://www.baidu.com" @click.prevent.once="linkClick">跳转到百度</a><br>
+
+
+    </div>
+
+
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                divHandler(){
+                    console.log("这是触发了inner Div")
+                },
+                btnHandler(){
+                    console.log("这是触发了btn 按钮的点击事件")
+                },
+                linkClick(){
+                    console.log("触发了链接点击事件")
+                }
+            },
+           
+        })
+    </script>
+</body>
+</html>

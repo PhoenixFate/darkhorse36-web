@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 1.导入Vue的包 -->
+    <script src="../lib/vue-2.4.0.js"></script>
+
+    <style>
+    * {
+            padding: 0;
+            margin: 0;
+        }
+        page {
+            position: fixed;
+        }
+
+
+        .content {
+            /*height: 100vh;*/
+            background-color: red;
+        }
+
+        .chat-content {
+            height: 70vh;
+            background-color: yellow;
+            overflow: scroll;
+        }
+        .tool-input {
+            height: 10vh;
+            background-color: blue;
+        }
+
+        .tool-image {
+            height: 20vh;
+            background-color: #10db60;
+        }
+
+        .chat-content9 {
+            height: 90vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- 将来new的Vue实例，会控制这个元素中的所有内容 -->
+    <!-- Vue 实例所控制的这个元素区域，就是我们的V -->
+    <div id="app">
+        <div class="chat-content" :class="toolFlag?'':'chat-content9'">
+            <h1>1</h1>
+            <h1>2</h1>
+            <h1>3</h1>
+            <h1>4</h1>
+            <h1>5</h1>
+            <h1>6</h1>
+            <h1>7</h1>
+            <h1>8</h1>
+            <h1>9</h1>
+            <h1>1</h1>
+            <h1>2</h1>
+            <h1>3</h1>
+            <h1>4</h1>
+            <h1>5</h1>
+            <h1>6</h1>
+            <h1>7</h1>
+            <h1>8</h1>
+            <h1>9</h1>
+            <h1>1</h1>
+            <h1>2</h1>
+            <h1>3</h1>
+            <h1>4</h1>
+            <h1>5</h1>
+            <h1>6</h1>
+            <h1>7</h1>
+            <h1>8</h1>
+            <h1>9</h1>
+            <h1>1</h1>
+            <h1>2</h1>
+            <h1>3</h1>
+            <h1>4</h1>
+            <h1>5</h1>
+            <h1>6</h1>
+            <h1>7</h1>
+            <h1>8</h1>
+            <h1>9</h1>
+        </div>
+        <div class="tool-input">
+            <input type="button" value="显示" @click="toggleTool">
+        </div>
+        <div class="tool-image" v-show="toolFlag"></div> 
+    </div>
+
+    <script>
+        // 2.创建一个Vue实例
+        // 当我们导入包之后，在浏览器的内存中，就多了一个Vue的构造函数
+        //注意：我们new出来的这个vm对象，就是我们mvvm中的vm调度者
+        var vm=new Vue({
+            el:'#app',//el表示当前我们new的这个Vue实例，要控制页面的哪个区域
+            //这里的data就是mvvm中的M，专门用来保存每个页面的数据
+            data:{//data属性中，存放的是el中要用到的数据
+                msg:'欢迎学习Vue', //通过Vue提供的指令，很方便的就能把数据渲染到页面上，程序员不用再手动的操作DOM元素了，前段Vue之类的框架也不建议我们使用手动操作Dom元素
+                toolFlag:false,
+            },
+
+            methods:{
+                toggleTool(){
+                    if(this.toolFlag){
+                        window.scrollTo(99999,99999);
+                    }
+                    this.toolFlag=!this.toolFlag;
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

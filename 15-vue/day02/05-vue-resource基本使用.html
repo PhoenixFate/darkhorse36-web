@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+    <!-- vue-resource依赖于vue,所以有先后顺序 -->
+    <!-- this.$http 获得请求对象 -->
+    <!-- this.$http.get -->
+    <!-- this.$http.post -->
+    <!-- this.$http.jsonp -->
+    <script src="../lib/vue-resource-1.3.4.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="get请求" @click="getInfo"><br>
+        <input type="button" value="post请求" @click="postInfo"><br>
+        <input type="button" value="jsonp请求" @click="getInfo2"><br>
+    </div>
+
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                
+            },
+            methods:{
+                getInfo(){
+                    //发起get请求
+                    //当发起get请求的时候，通过.then来设置成功的函数
+                    this.$http.get('http://jd.itying.com/api/pcate',{}).then(function(result){
+                        console.log(result);
+                        console.log(result.data);
+                        console.log(result.body);
+                    },function(){
+
+                    })
+                },
+                postInfo(){
+                    //发起get请求
+                    //当发起get请求的时候，通过.then来设置成功的函数
+                    //手动发起的post请求，没有form表单
+                    this.$http.post('http://jd.itying.com/api/sendCode',{"tel":"18751801512"},{emulateJSON:true}).then(function(result){
+                        console.log(result);
+                        console.log(result.data);
+                        console.log(result.body);
+                    },function(){
+
+                    })
+                },
+
+                getInfo2(){
+                    //发起get请求
+                    //当发起get请求的时候，通过.then来设置成功的函数
+                    this.$http.jsonp('http://jd.itying.com/api/pcate',{}).then(function(data){
+                        console.log(data);
+                    },function(error){
+                        console.log(error);
+                    })
+                }
+            },
+            filters:{
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../lib/vue-2.4.0.js"></script>
+    <script src="../lib/vue-resource-1.3.4.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.7.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        
+        
+        <div class="panel panel-primary">
+              <div class="panel-heading">
+                    <h3 class="panel-title">添加品牌</h3>
+              </div>
+              <div class="panel-body form-inline">
+                    <label>
+                        name :
+                        <input type="text" v-model="name" class="form-control">
+                    </label>
+                    <input type="button" value="新增" class="btn btn-primary" @click="add">
+              </div>
+        </div>
+        
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Time</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in list" :key="item.id">
+                    <td>{{item._id}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.time}}</td>
+                    <td><a href="#" @click.prevent='del'>delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
+
+    </div>
+
+    <script>
+        //如果我们通过配置请求根路径，则在每次单独发起请求 的时候，请求的url路径，应该以相对路径开头，前面不能带/，否则不会带根路径拼接
+        Vue.http.options.root='http://jd.itying.com/';
+        Vue.http.options.emulateJSON=true;
+
+        var vn=new Vue({
+            el:'#app',
+            data:{
+                id:'',
+                name:'',
+                list:[
+                    {
+                        id:1,name:'wje',time:new Date(),
+                    }
+                ]
+            },methods:{
+                add(){
+                     //发起get请求
+                    //当发起get请求的时候，通过.then来设置成功的函数
+                    //手动发起的post请求，没有form表单
+                    this.$http.post('api/sendCode',{"tel":"18751801512"}).then(function(result){
+                        console.log(result);
+                        console.log(result.data);
+                        console.log(result.body);
+                    },function(){
+
+                    })
+                },
+                getAllList(){
+                    console.log(this);
+                    this.$http.get('api/pcate',{}).then(function(result){
+                        
+                        console.log(result);
+                        this.list=result.body.result
+                    },function(error){
+                        console.log(error)
+                    })
+                },
+                del(){
+                    console.log("删除成功")
+                }
+            },
+
+            created(){
+                this.getAllList();
+            }
+        }) 
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <mycom1></mycom1>
+
+    </div>
+
+    <template id="temp1">
+        <h1>这是全局的组件----------{{msg}}</h1>
+    </template>
+
+    <script>
+        
+
+        //组件的data和实例的data不一样，
+        //实例中的data为一个对象
+        //组件中的data为一个方式
+        //组件中的data方法内部必须返回一个对象
+        Vue.component('mycom1',{
+            template:"#temp1",
+            data:function(){
+                return {
+                    msg:"这是组件中自己定义的数据"
+                }
+            }
+        })
+
+
+
+        var vm=new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>
