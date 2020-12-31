@@ -1,16 +1,16 @@
 <?php
 
-// PHP ÖÐ header º¯Êý×¨ÃÅÓÃÓÚÉèÖÃÏìÓ¦Í·
-header('Content-Type: text/html; charset=GBK');
+// PHP ä¸­ header å‡½æ•°ä¸“é—¨ç”¨äºŽè®¾ç½®å“åº”å¤´
+header('Content-Type: text/html; charset=utf-8');
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ÕâÊÇÒ»¸öÍøÒ³ÄÚÈÝ</title>
+  <title>è¿™æ˜¯ä¸€ä¸ªç½‘é¡µå†…å®¹</title>
 </head>
 <body>
-  <h1>ÕâÊÇÒ»¸öÍøÒ³ÄÚÈÝ</h1>
+  <h1>è¿™æ˜¯ä¸€ä¸ªç½‘é¡µå†…å®¹</h1>
 </body>
 </html>
