@@ -30,7 +30,7 @@ function add_user() {
 
   $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
   // => jpg
-  $target = '../uploads/avatar-' . uniqid() . '.' . $ext;
+  $target = './assets/img/avatar-' . uniqid() . '.' . $ext;
 
   if (!move_uploaded_file($_FILES['avatar']['tmp_name'], $target)) {
     $GLOBALS['error_message'] = '上传头像失败';
@@ -46,7 +46,7 @@ function add_user() {
   // 保存
 
   // 1. 建立连接
-  $conn = mysqli_connect('localhost', 'root', '123456', 'test');
+  $conn = mysqli_connect('114.67.89.253', 'root', 'centos123qwer', 'darkhorse36','3306');
 
   if (!$conn) {
     $GLOBALS['error_message'] = '连接数据库失败';
@@ -55,7 +55,7 @@ function add_user() {
 
   // var_dump("insert into users values (null, '{$name}', {$gender}, '{$birthday}', '{$avatar}');");
   // 2. 开始查询
-  $query = mysqli_query($conn, "insert into users values (null, '{$name}', {$gender}, '{$birthday}', '{$avatar}');");
+  $query = mysqli_query($conn, "insert into php_users values (null, '{$name}', {$gender}, '{$birthday}', '{$avatar}');");
 
   if (!$query) {
     $GLOBALS['error_message'] = '查询过程失败';
@@ -112,19 +112,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <div class="form-group">
         <label for="name">姓名</label>
-        <input type="text" class="form-control" id="name" name="name">
+        <input type="text" class="form-control" id="name" name="name" value="<?php echo isset($_POST['name'])?$_POST['name']:''?>">
       </div>
       <div class="form-group">
         <label for="gender">性别</label>
         <select class="form-control" id="gender" name="gender">
           <option value="-1">请选择性别</option>
-          <option value="1">男</option>
-          <option value="0">女</option>
+          <option value="1" <?php echo (isset($_POST['gender']) && $_POST['gender']=== '1' )? ' selected' : ''; ?>>男</option>
+          <option value="0" <?php echo (isset($_POST['gender']) && $_POST['gender'] === '0') ? ' selected' : ''; ?>>女</option>
         </select>
       </div>
       <div class="form-group">
         <label for="birthday">生日</label>
-        <input type="date" class="form-control" id="birthday" name="birthday">
+        <input type="date" class="form-control" id="birthday" name="birthday" value="<?php echo isset($_POST['birthday'])?$_POST['birthday']:''?>">
       </div>
       <button class="btn btn-primary">保存</button>
     </form>

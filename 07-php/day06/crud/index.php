@@ -1,14 +1,14 @@
 <?php
 
 // 1. 建立连接
-$conn = mysqli_connect('localhost', 'root', '123456', 'test');
+$conn = mysqli_connect('114.67.89.253', 'root', 'centos123qwer', 'darkhorse36','3306');
 
 if (!$conn) {
   exit('<h1>连接数据库失败</h1>');
 }
 
 // 2. 开始查询
-$query = mysqli_query($conn, 'select * from users;');
+$query = mysqli_query($conn, 'select * from php_users;');
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');
@@ -57,12 +57,13 @@ if (!$query) {
         <?php while ($item = mysqli_fetch_assoc($query)): ?>
         <tr>
           <th scope="row"><?php echo $item['id'] ?></th>
+          <!--  alt属性是一个必需的属性，它规定在图像无法显示时的替代文本。-->
           <td><img src="<?php echo $item['avatar']; ?>" class="rounded" alt="<?php echo $item['name']; ?>"></td>
           <td><?php echo $item['name']; ?></td>
           <td><?php echo $item['gender'] == 0 ? '♀' : '♂'; ?></td>
           <td><?php echo $item['birthday']; ?></td>
           <td class="text-center">
-            <a class="btn btn-info btn-sm" href="edit.php">编辑</a>
+            <a class="btn btn-info btn-sm" href="edit.php?id=<?php echo $item['id'] ?>">编辑</a>
             <a class="btn btn-danger btn-sm" href="delete.php?id=<?php echo $item['id'] ?>">删除</a>
           </td>
         </tr>

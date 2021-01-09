@@ -8,14 +8,14 @@ if (empty($_GET['id'])) {
 $id = $_GET['id']; // => 1,2,3
 
 // 1. 建立连接
-$conn = mysqli_connect('localhost', 'root', '123456', 'test');
+$conn = mysqli_connect('114.67.89.253', 'root', 'centos123qwer', 'darkhorse36','3306');
 
 if (!$conn) {
   exit('<h1>连接数据库失败</h1>');
 }
 
 // 2. 开始查询
-$query = mysqli_query($conn, 'delete from users where id in (' . $id . ');');
+$query = mysqli_query($conn, 'delete from php_users where id in (' . $id . ');');
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');

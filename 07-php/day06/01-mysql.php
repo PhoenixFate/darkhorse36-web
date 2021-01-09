@@ -3,9 +3,7 @@
 // 能通过PHP代码执行一个SQL语句得到查询的结果
 // mb_strlen(str)
 // 类似于之前的宽字符集函数问题，mysqli是一个额外的扩展
-// 如果想要使用这个扩展提供的函数，必须开启扩展
-// extension_dir
-// 解除注释 extension=php_mysqli.dll
+
 //
 // 如果需要在调用函数时忽略错误或者警告可以在函数名之前加上 @
 
@@ -30,8 +28,6 @@ $query = mysqli_query($connection, 'select * from users;');
 // }
 // var_dump($row);
 
-// while
-//
 
 while ($row = mysqli_fetch_assoc($query)) {
   var_dump($row);
