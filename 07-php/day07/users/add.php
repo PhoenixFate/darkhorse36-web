@@ -46,7 +46,7 @@ function add_user() {
   // 保存
 
   // 1. 建立连接
-  $conn = mysqli_connect('localhost', 'root', '123456', 'test');
+  $conn = mysqli_connect('114.67.89.253', 'root', '123456', 'darkhorse36');
 
   if (!$conn) {
     $GLOBALS['error_message'] = '连接数据库失败';
@@ -55,7 +55,7 @@ function add_user() {
 
   // var_dump("insert into users values (null, '{$name}', {$gender}, '{$birthday}', '{$avatar}');");
   // 2. 开始查询
-  $query = mysqli_query($conn, "insert into users values (null, '{$name}', {$gender}, '{$birthday}', '{$avatar}');");
+  $query = mysqli_query($conn, "insert into php_users values (null, '{$name}', {$gender}, '{$birthday}', '{$avatar}');");
 
   if (!$query) {
     $GLOBALS['error_message'] = '查询过程失败';

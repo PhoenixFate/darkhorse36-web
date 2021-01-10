@@ -22,6 +22,8 @@ setcookie('key1', 'value1');
 // 不传递就是 会话级别的 Cookie （关闭浏览器就自动删除）
 setcookie('key2', 'value2', time() + 1 * 24 * 60 * 60);
 
+//第四个参数设置path (path设置cookie的作用路径范围)
 setcookie('key3', 'value3', time() + 1 * 24 * 60 * 60, '/users');
 
+//第五个参数domain；第六个参数secure：限制只能https；第七个参数httpOnly （httponly的cookie，js无法操作，只能通过http调用修改）
 setcookie('key4', 'value4', time() + 1 * 24 * 60 * 60, '', '', false, true);

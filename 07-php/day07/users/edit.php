@@ -8,7 +8,7 @@ if (empty($_GET['id'])) {
 $id = $_GET['id'];
 
 // 1. 建立连接
-$conn = mysqli_connect('localhost', 'root', '123456', 'test');
+$conn = mysqli_connect('114.67.89.253', 'root', 'centos123qwer', 'darkhorse36');
 
 if (!$conn) {
   exit('<h1>连接数据库失败</h1>');
@@ -16,7 +16,7 @@ if (!$conn) {
 
 // 2. 开始查询
 // 因为 ID 是唯一的 那么找到第一个满足条件的就不用再继续了 limit 1
-$query = mysqli_query($conn, "select * from users where id = {$id} limit 1;");
+$query = mysqli_query($conn, "select * from php_users where id = {$id} limit 1;");
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');

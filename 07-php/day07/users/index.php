@@ -1,14 +1,14 @@
 <?php
 
 // 1. 建立连接
-$conn = mysqli_connect('localhost', 'root', '123456', 'test');
+$conn = mysqli_connect('114.67.89.253', 'root', 'centos123qwer', 'darkhorse36','3306');
 
 if (!$conn) {
   exit('<h1>连接数据库失败</h1>');
 }
 
 // 2. 开始查询
-$query = mysqli_query($conn, 'select * from users;');
+$query = mysqli_query($conn, 'select * from php_users;');
 
 if (!$query) {
   exit('<h1>查询数据失败</h1>');
