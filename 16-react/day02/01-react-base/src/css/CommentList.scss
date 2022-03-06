@@ -1,0 +1,25 @@
+.title {
+    color: red;
+    text-align: center;
+    font-weight: 200; 
+}
+
+/* 
+    注意：css模块化只正对：类选择器，id选择器
+    css模块化不会将标签选择器 模块化
+*/
+
+/* h2 {
+    font-style: italic;
+} */
+
+/* 注意：被:global()包裹起来的类名不会被模块化，而是会全局生效 */
+:global(.test) {
+    font-style: italic;
+}
+
+/* 注意：被:local() 包裹起来的类名会被模块化，会被模块化 */
+/* modules模式下：默认所有的.class #id 会被模块化 */
+:local(.test2){
+    color:#234;
+}
