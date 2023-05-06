@@ -13,7 +13,7 @@
   "dependencies": {
     "@babel/runtime": "^7.5.1",
     "bootstrap": "^3.3.7",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mint-ui": "^2.2.13",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7"
